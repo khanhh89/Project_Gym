@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +9,7 @@
 .container {
   display: flex;
   min-height: 100vh;
-  flex-direction: column; /* Mặc định là column cho mobile */
+  flex-direction: column; 
 }
 
 .sidebar {
@@ -58,7 +59,7 @@
 
 .content {
   flex: 1;
-  padding: 20px; /* Giảm padding trên mobile */
+  padding: 20px;
   background: #F3F4F6;
 }
 
@@ -67,8 +68,8 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  flex-wrap: wrap; /* Cho phép wrap trên mobile */
-  gap: 10px; /* Khoảng cách giữa các phần tử */
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .add-service {
@@ -78,7 +79,7 @@
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px; /* Giảm kích thước chữ trên mobile */
+  font-size: 14px;
 }
 
 table {
@@ -91,92 +92,77 @@ table {
 
 table th,
 table td {
-  padding: 10px; /* Giảm padding trên mobile */
+  padding: 10px;
   border-bottom: 1px solid #E5E7EB;
   text-align: left;
-  font-size: 14px; /* Giảm kích thước chữ trên mobile */
+  font-size: 14px;
 }
 
 table th {
   background: #F9FAFB;
 }
 
-/* Media Queries cho các kích thước màn hình lớn hơn */
-@media (min-width: 768px) { /* Tablet trở lên */
+/* Media Queries */
+@media (min-width: 768px) {
   .container {
-      flex-direction: row; /* Chuyển sang row cho tablet và desktop */
+    flex-direction: row;
   }
-
   .sidebar {
-      width: 250px; /* Khôi phục width cố định */
-      min-height: 100vh; /* Đảm bảo sidebar full height */
+    width: 250px;
+    min-height: 100vh;
   }
-
   .content {
-      padding: 30px; /* Khôi phục padding gốc */
+    padding: 30px;
   }
-
   table th,
   table td {
-      padding: 15px; /* Khôi phục padding gốc */
-      font-size: 16px; /* Khôi phục kích thước chữ */
+    padding: 15px;
+    font-size: 16px;
   }
-
   .add-service {
-      font-size: 16px; /* Khôi phục kích thước chữ */
+    font-size: 16px;
   }
 }
 
-/* Điều chỉnh cho màn hình nhỏ hơn (mobile) */
 @media (max-width: 767px) {
   .sidebar {
-      padding: 15px; /* Giảm padding trên mobile */
+    padding: 15px;
   }
-
   .sidebar h2 {
-      font-size: 18px; /* Giảm kích thước chữ */
-      margin-bottom: 20px;
+    font-size: 18px;
+    margin-bottom: 20px;
   }
-
   .sidebar ul li a,
   .sidebar .logout {
-      font-size: 14px; /* Giảm kích thước chữ */
-      padding: 8px;
+    font-size: 14px;
+    padding: 8px;
   }
-
-  /* Ẩn cột không cần thiết trong bảng trên mobile */
   table {
-      display: block;
-      overflow-x: auto; /* Cho phép cuộn ngang nếu cần */
-      white-space: nowrap;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
-
   .header {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
-/* Điều chỉnh cho màn hình rất nhỏ (dưới 480px) */
 @media (max-width: 480px) {
   .sidebar h2 {
-      font-size: 16px;
+    font-size: 16px;
   }
-
   .sidebar ul li {
-      margin-bottom: 10px;
+    margin-bottom: 10px;
   }
-
   .content {
-      padding: 15px;
+    padding: 15px;
   }
-
   .add-service {
-      width: 100%; /* Button full width trên mobile nhỏ */
-      text-align: center;
+    width: 100%;
+    text-align: center;
   }
 }
-
 
 .edit-btn, .delete-btn {
   padding: 5px 10px;
@@ -220,7 +206,7 @@ table th {
   border: none;
 }
 
-/* CSS cho modal thêm dịch vụ */
+/* modal thêm dịch vụ */
 .modal {
   display: none;
   position: fixed;
@@ -229,9 +215,18 @@ table th {
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* nền đen mờ */
+  background-color: rgba(0, 0, 0, 0);
   justify-content: center;
   align-items: center;
+}
+
+.modal.show {
+  display: flex;
+  animation: darkFadeIn 0.4s ease forwards; /* Hiệu ứng nền tối dần */
+}
+
+.modal.closing {
+  animation: darkFadeOut 0.4s ease forwards; /* Hiệu ứng nền sáng dần khi đóng */
 }
 
 .modal-content {
@@ -243,6 +238,14 @@ table th {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   position: relative;
   font-family: 'Segoe UI', sans-serif;
+}
+
+.modal.show .modal-content {
+  animation: scaleIn 0.4s ease forwards; /* Hiệu ứng phóng to */
+}
+
+.modal.closing .modal-content {
+  animation: scaleOut 0.4s ease forwards; /* Hiệu ứng thu nhỏ */
 }
 
 .modal-content input {
@@ -289,18 +292,27 @@ table th {
   color: #333;
 }
 
-/* CSS cho modal chỉnh sửa */
+/* CSS cho modal chỉnh sửa  */
 .edit-modal {
-  display: none; /* Ẩn mặc định */
-  position: fixed; /* Cố định trên viewport */
-  z-index: 9999; /* Đảm bảo ở trên các phần tử khác */
+  display: none;
+  position: fixed;
+  z-index: 9999;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* Nền đen mờ */
-  justify-content: center; /* Căn giữa theo chiều ngang */
-  align-items: center; /* Căn giữa theo chiều dọc */
+  background-color: rgba(0, 0, 0, 0); /* Trong suốt ban đầu */
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-modal.show {
+  display: flex;
+  animation: darkFadeIn 0.4s ease forwards;
+}
+
+.edit-modal.closing {
+  animation: darkFadeOut 0.4s ease forwards;
 }
 
 .edit-modal .modal-content {
@@ -312,6 +324,14 @@ table th {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   position: relative;
   font-family: 'Segoe UI', sans-serif;
+}
+
+.edit-modal.show .modal-content {
+  animation: scaleIn 0.4s ease forwards;
+}
+
+.edit-modal.closing .modal-content {
+  animation: scaleOut 0.4s ease forwards;
 }
 
 .edit-modal h3 {
@@ -359,4 +379,45 @@ table th {
 #cancel-edit {
   background-color: #6c757d;
   color: white;
+}
+
+/* */
+@keyframes darkFadeIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+@keyframes darkFadeOut {
+  from {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
 }

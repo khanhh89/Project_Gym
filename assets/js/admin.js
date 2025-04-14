@@ -128,8 +128,8 @@ function renderTable(data) {
       <td>${item.fullName || ""}</td>
       <td>${item.email || ""}</td>
       <td>
-        <button aria-label="Sửa lịch tập" onclick="window.editSchedule(${index})">Sửa</button>
-        <button aria-label="Xóa lịch tập" onclick="window.deleteSchedule(${index})">Xóa</button>
+        <button class="btn-edit" aria-label="Sửa lịch tập" onclick="window.editSchedule(${index})">Sửa</button>
+        <button class="btn-delete" aria-label="Xóa lịch tập" onclick="window.deleteSchedule(${index})">Xóa</button>
       </td>
     `;
     tbody.appendChild(row);
@@ -139,8 +139,6 @@ function renderTable(data) {
 let currentEditIndex = null;
 
 function editSchedule(index) {
-  console.log("editSchedule called with index:", index);
-  try {
     currentEditIndex = index;
     const booking = upDate[index];
     const modal = document.getElementById("editModal");
@@ -164,10 +162,8 @@ function editSchedule(index) {
 
     modal.style.display = "flex";
     console.log("Modal display set to flex");
-  } catch (e) {
-    console.error("Error in editSchedule:", e);
   }
-}
+
 
 function deleteSchedule(index) {
   Swal.fire({

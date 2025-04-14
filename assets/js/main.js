@@ -13,24 +13,6 @@ const classList = [
     },
     {
       id: 3,
-      name: "Pilates",
-      description: "Tập trung vào sức mạnh cốt lõi và sự linh hoạt",
-      image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTgDkevBo8P3TTyMzlowErh4H6fiYpykKiFJSZ4Vxnr20pcyca3Ylm9ufIQpLPllFh0wK1y5C7fnOb_RCx3CcEDlopLbqfNnVIkoaf3XA"
-    },
-    {
-      id: 4,
-      name: "Body Pump",
-      description: "Tập luyện với các bài tập nâng tạ nhẹ nhàng",
-      image: "https://dayngusac.com/wp-content/uploads/2023/03/body-pump-la-gi-loi-ich-khi-tap-body-pump.jpg"
-    },
-    {
-      id: 5,
-      name: "Aerobics",
-      description: "Đốt cháy calo và cải thiện tim mạch",
-      image: "https://i.ytimg.com/vi/965qZScyVVI/maxresdefault.jpg"
-    },
-    {
-      id: 6,
       name: "Gym",
       description: "Tập luyện với các thiết bị hiện đại",
       image: "../../assets/img/Gym.png"

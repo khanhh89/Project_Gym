@@ -96,6 +96,7 @@
   font-size: 20px;
   font-weight: bold;
 }
+
 #gymCount {
   color: #007bff;
 }
@@ -132,7 +133,17 @@
   font-size: 14px;
   color: #333;
 }
-
+#filterBtn{
+  background-color: #36a2eb;
+  color: #fff;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 5%;
+  height: 35px;
+}
+#filterBtn:hover{
+  background-color:#1c91de ;
+}
 .filter-group select,
 .filter-group input {
   padding: 8px 10px;
@@ -143,7 +154,7 @@
 }
 
 .filter-group select {
-  width: 150px;
+  width: 200px;
 }
 
 .filter-group input[type="text"] {
@@ -151,9 +162,33 @@
 }
 
 .filter-group input[type="date"] {
-  width: 150px;
+  width: 200px;
 }
 
+.btn-edit {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid;
+  width: 32%;
+  border-radius: 4px;
+  width: 40px;
+  height: 30px;
+}
+.btn-delete {
+  background-color: #f44336;
+  color: white;
+  border: 1px solid;
+  width: 32%;
+  border-radius: 4px;
+  width: 40px;
+  height: 30px;
+}
+.btn-edit:hover {
+  background-color: #45a049;
+}
+.btn-delete:hover {
+  background-color: #da190b;
+}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -272,6 +307,7 @@ table tbody td a:hover {
     font-size: 13px;
   }
 }
+
 /* CSS */
 .stat-section {
   padding: 20px;
@@ -298,7 +334,7 @@ table tbody td a:hover {
   padding: 12px;
   background: white;
   border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 }
 
 .stat-card p {
@@ -501,7 +537,7 @@ table tbody td a:hover {
   .filter-group input {
     padding: 6px;
     font-size: 11px;
-    
+
   }
 
   table th,
@@ -510,6 +546,7 @@ table tbody td a:hover {
     font-size: 10px;
   }
 }
+
 .chart-container {
   background-color: #fff;
   padding: 20px;
@@ -521,52 +558,67 @@ table tbody td a:hover {
 .chart-container canvas {
   width: 100%;
   max-width: 95%;
-  height: 200px ;
+  height: 200px;
 }
 
 /* Modal container */
 #editModal {
   display: none;
   position: fixed;
-  z-index: 999;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  animation: fadeIn 0.3s ease-out;
 }
 
 /* Modal content */
 .modal-content {
-  background-color: #fff;
+  background: linear-gradient(145deg, #ffffff, #f6f8fa);
   padding: 32px 24px;
   border-radius: 20px;
   width: 420px;
   max-width: 90%;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 
+              0 5px 15px rgba(0, 0, 0, 0.1);
   position: relative;
+  transform: scale(0.7);
+  animation: scaleUp 0.3s ease-out forwards;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Modal header */
 .modal-content h2 {
   text-align: center;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  color: #1a1a1a;
+  background: linear-gradient(to right, #5d75ec, #7b3fe4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
+/* Labels */
 .modal-content label {
   display: block;
   margin-top: 12px;
   font-weight: 500;
   font-size: 14px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  color: #333;
+  transition: color 0.3s ease;
 }
 
+/* Inputs and selects */
 .modal-content select,
 .modal-content input[type="text"],
 .modal-content input[type="email"],
@@ -574,17 +626,21 @@ table tbody td a:hover {
 .modal-content input[type="time"] {
   width: 100%;
   padding: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   border-radius: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #e0e0e0;
   font-size: 15px;
-  transition: border-color 0.3s;
+  background: #fafafa;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .modal-content select:focus,
 .modal-content input:focus {
   outline: none;
   border-color: #5d75ec;
+  box-shadow: 0 0 8px rgba(93, 117, 236, 0.3);
+  background: #fff;
 }
 
 /* Button container */
@@ -592,41 +648,103 @@ table tbody td a:hover {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
-/* Nút bấm */
+/* Buttons */
 .modal-buttons button {
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 10px;
   font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
   border: none;
-  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .modal-buttons .cancel {
-  background-color: #f1f1f1;
+  background: #e0e0e0;
   color: #333;
 }
 
+.modal-buttons .cancel:hover {
+  background: #d0d0d0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .modal-buttons .save {
-  background-color: #5d75ec;
+  background: linear-gradient(45deg, #5d75ec, #7b3fe4);
   color: white;
 }
 
-/* Nút đóng (nếu có) */
+.modal-buttons .save:hover {
+  background: linear-gradient(45deg, #4a60d9, #6a2fd3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(93, 117, 236, 0.3);
+}
+
+/* Button ripple effect */
+.modal-buttons button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.modal-buttons button:hover::after {
+  width: 200px;
+  height: 200px;
+}
+
+/* Close button */
 .modal-content .close {
   position: absolute;
   top: 16px;
   right: 20px;
-  font-size: 20px;
+  font-size: 24px;
   color: #888;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
-.modal-buttons {
-  display: flex;
-  justify-content: flex-end; /* Đẩy sang phải */
-  gap: 12px;                 /* Khoảng cách giữa nút */
-  margin-top: 20px;
+
+.modal-content .close:hover {
+  color: #5d75ec;
+  transform: rotate(90deg);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .modal-content {
+    width: 95%;
+    padding: 24px 16px;
+  }
+
+  .modal-content h2 {
+    font-size: 18px;
+  }
+
+  .modal-buttons button {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
 }

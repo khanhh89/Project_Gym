@@ -286,16 +286,15 @@ tr:hover {
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -100%);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
+
+@keyframes slideIn {
+  from { transform: translate(-50%, -50%) scale(0.85); opacity: 0; }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
 
 /* Tiêu đề modal */
 .modal-title {
@@ -369,7 +368,7 @@ tr:hover {
 }
 
 .modal-btn-cancel:hover {
-    background: #e2e6ea;
+    background: #e2eae4;
     transform: translateY(-2px);
 }
 
