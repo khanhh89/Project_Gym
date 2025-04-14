@@ -1,0 +1,246 @@
+:root {
+  --background-nav: #1F2937;
+  --background-button: #3B82F6;
+  --background-white: #FFFFFF;
+  --font-text: "Inter", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-text);
+}
+
+/* Login */
+.login-container {
+  width: 448px;
+  padding: 32px;
+  background-color: var(--background-white);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.login-container h1 {
+  margin-bottom: 24.5px;
+  font-weight: 700;
+  font-size: 27.9px;
+  line-height: 32px;
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: 500;
+  font-size: 15.6px;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input-group span {
+  color: rgb(231, 98, 98);
+  font-size: 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--background-button);
+  color: var(--background-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+.btn-login:hover {
+  background-color: #0056b3;
+}
+
+.login-container p {
+  margin-top: 10px;
+  font-size: 17.6px;
+  font-weight: 400;
+}
+
+.sign-in {
+  color: var(--background-button);
+  cursor: pointer;
+}
+
+.sign-in:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+
+/* Desktop (mặc định ở trên là cho desktop, không cần thay đổi) */
+
+/* Tablet (768px - 1023px) */
+@media (max-width: 1023px) {
+  .login-container {
+    width: 70%; /* Giảm width cho tablet */
+    padding: 25px;
+  }
+
+  .login-container h1 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .input-group label {
+    font-size: 14px;
+  }
+
+  .input-group input {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .btn-login {
+    padding: 8px;
+    font-size: 15px;
+  }
+
+  .login-container p {
+    font-size: 16px;
+  }
+}
+
+/* Mobile (480px - 767px) */
+@media (max-width: 767px) {
+  .login-container {
+    width: 85%;
+    padding: 20px;
+  }
+
+  .login-container h1 {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .input-group label {
+    font-size: 13px;
+  }
+
+  .input-group input {
+    padding: 7px;
+    font-size: 12px;
+  }
+
+  .input-group span {
+    font-size: 13px;
+  }
+
+  .btn-login {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .login-container p {
+    font-size: 15px;
+  }
+}
+
+/* Small Mobile (dưới 480px) */
+@media (max-width: 480px) {
+  .login-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .login-container h1 {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+
+  .input-group {
+    margin-bottom: 12px;
+  }
+
+  .input-group label {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .input-group input {
+    padding: 6px;
+    font-size: 11px;
+  }
+
+  .input-group span {
+    font-size: 12px;
+  }
+
+  .btn-login {
+    padding: 7px;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+
+  .login-container p {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  .sign-in {
+    font-size: 14px;
+  }
+}
+
+/* Very Small Devices (dưới 360px) */
+@media (max-width: 360px) {
+  .login-container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .login-container h1 {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 15px;
+  }
+
+  .input-group label {
+    font-size: 11px;
+  }
+
+  .input-group input {
+    padding: 5px;
+    font-size: 10px;
+  }
+
+  .btn-login {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .login-container p {
+    font-size: 13px;
+  }
+}

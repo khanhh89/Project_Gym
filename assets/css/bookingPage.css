@@ -1,0 +1,439 @@
+:root {
+    --background-nav: #1F2937;
+    --background-button: #3B82F6;
+    --background-white: #FFFFFF;
+    --font-text: "Inter", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-text);
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--background-nav);
+    display: flex;
+    width: 100%;
+    height: 52px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 96px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar h2 {
+    color: #FFFFFF;
+    font-size: 16.7px;
+    font-weight: 700;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 16px;
+}
+
+.navbar li {
+    list-style-type: none;
+}
+
+.navbar a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+.btn-new {
+    background-color: var(--background-button);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-new:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--background-white);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: none;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #333;
+    /* Xóa viền dọc giữa các cột */
+    border-right: none;
+}
+
+th:last-child {
+    border-right: none;
+}
+
+td {
+    color: #666;
+    /* Xóa viền dọc giữa các cột */
+    border-right: none;
+}
+
+td:last-child {
+    border-right: none;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Actions Column */
+.actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+}
+
+.a .btn-edit,
+.btn-delete {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.btn-edit {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid;
+    width: 32%;
+    border-radius: 4px;
+
+}
+
+.btn-edit:hover {
+    background-color: #45a049;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #da190b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 12px;
+    }
+
+    .container h1 {
+        margin: 20px 0 0 0;
+        font-size: 15px;
+    }
+
+    .container button {
+        width: 120px;
+        height: 36px;
+        margin: 16px 0 0 0;
+    }
+
+    .navbar {
+        padding: 0 16px;
+    }
+
+    .navbar h2 {
+        margin-left: 0;
+    }
+
+    .navbar ul {
+        margin-right: 0;
+        gap: 8px;
+    }
+
+    .navbar a {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container h1 {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .container button {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 16px;
+    }
+
+    .navbar h2 {
+        margin-bottom: 10px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .6);
+    /* Nền mờ với độ trong suốt */
+    z-index: 1;
+    filter: blur(5px);
+    /* Hiệu ứng mờ nền */
+}
+
+/* Modal overlay để căn giữa */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease-out;
+    margin: 20px auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Tiêu đề modal */
+.modal-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+/* Trường nhập liệu */
+.modal-field {
+    margin-bottom: 20px;
+}
+
+/* Nhãn */
+.modal-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* Input và Select */
+.modal-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    background: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng khi focus vào input/select */
+.modal-input:focus {
+    outline: none;
+    border-color: #007bff;
+    background: #fff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Nút hành động */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* Nút chung */
+.modal-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+/* Nút Hủy */
+.modal-closel {
+    background: #e0e2e9;
+    color: #555;
+}
+
+.modal-btn-cancel:hover {
+    background: #e2e6ea;
+    transform: translateY(-2px);
+}
+
+/* Nút Lưu */
+.modal-btn-save {
+    background: #007bff;
+    color: #fff;
+}
+
+.modal-btn-save:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+.pagenumbers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.pagenumbers button {
+    width: 30px;
+    height: 30px;
+
+    appearance: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin: 5px;
+    transition: 0.4s;
+
+    color: #535252;
+    font-size: 15px;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.pagenumbers button:hover {
+    background-color: #919b97;
+}
+
+.pagenumbers button.active {
+    background-color: #a3aca9;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 480px) {
+    .modal {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .modal-title {
+        font-size: 20px;
+    }
+
+    .modal-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+}

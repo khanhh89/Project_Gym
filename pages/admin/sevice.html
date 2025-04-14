@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../../assets/css/sevice.css" />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <h2>Admin Dashboard</h2>
+        <ul>
+          <li><a href="../../index.html">Quản lý lịch</a></li>
+          <li class="active"><a href="#">Quản lý dịch vụ</a></li>
+          <li><a href="../admin/dashboard.html">Trang chủ</a></li>
+          <a href="../auth/login.html" class="logout">Đăng xuất</a>
+        </ul>
+      </aside>
+      <main class="content">
+        <div class="header">
+          <h1>Quản lý Dịch vụ</h1>
+          <button class="add-service">Thêm dịch vụ mới</button>
+        </div>
+        <!-- Modal Thêm Dịch Vụ -->
+        <div id="addModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>Thêm dịch vụ mới</h2>
+              <form id="addForm">
+                <input type="text" id="newName" placeholder="Tên dịch vụ" required />
+                <input type="text" id="newDescription" placeholder="Mô tả dịch vụ" required />
+                <input type="text" id="newImage" placeholder="Link hình ảnh" required />
+                <div class="modal-buttons">
+                  <button type="button" class="cancel">Hủy</button>
+                  <button type="submit" class="save">Thêm</button>
+                </div>
+              </form>
+            </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Tên dịch vụ</th>
+              <th>Mô tả</th>
+              <th>Hình ảnh</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dữ liệu sẽ được đổ vào đây -->
+          </tbody>
+        </table>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../assets/js/adminUpdate.js"></script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản Lý Lịch Tập</title>
+    <link rel="stylesheet" href="../../assets/css/bookingPage.css" />
+    <link rel="stylesheet" href="../../assets/fontawesome-free-6.7.2-web/css/all.min.css">
+  </head>
+  <body>
+    <nav class="navbar">
+      <h2>GYM MANAGEMENT</h2>
+      <ul>
+        <li><a href="../admin/dashboard.html">Trang chủ</a></li>
+        <li><a href="#" class="active">Lịch tập</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <header>
+        <h1>Quản lý lịch tập</h1>
+        <button class="btn-new">Đặt lịch mới</button>
+      </header>
+      <table>
+        <thead>
+          <tr>
+            <!-- <th>Lớp học</th>
+            <th>Ngày tập</th>
+            <th>Khung giờ</th>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>Thao tác</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <div class="list" id="list"></div>
+          <div class="pagenumbers" id="pagination"></div>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" style="display: none;">
+      <div class="modal">
+        <h2 class="modal-title">Đặt lịch mới</h2>
+        <div class="modal-field">
+          <label for="classType" class="modal-label">Lớp học</label>
+          <select name="class" id="classType" class="modal-input">
+            <option value="">Chọn lớp học</option>
+            <option value="Gym">Gym</option>
+            <option value="Yoga">Yoga</option>
+            <option value="Zumba">Zumba</option>
+          </select>
+        </div>
+        <div class="modal-field">
+          <label for="date" class="modal-label">Ngày tập</label>
+          <input type="date" name="date" id="date" class="modal-input">
+        </div>
+        <div class="modal-field">
+          <label for="time" class="modal-label">Khung giờ</label>
+          <select name="time" id="time" class="modal-input">
+            <option value="">Chọn khung giờ</option>
+            <option value="19h-22h">19h-22h</option>
+            <option value="17h-19h">17h-19h</option>
+            <option value="5h-7h">5h-7h</option>
+            <option value="7h-9h">7h-9h</option>
+          </select>
+        </div>
+        <!-- <div class="modal-field">
+          <label for="fullName" class="modal-label">Họ tên</label>
+          <input type="text" name="fullName" id="fullName" class="modal-input">
+        </div> -->
+        <!-- <div class="modal-field">
+          <label for="email" class="modal-label">Email</label>
+          <input type="email" name="email" id="email" class="modal-input">
+        </div> -->
+        <div class="modal-actions">
+          <button type="button" class="modal-btn modal-close">Hủy</button>
+          <button type="button" class="modal-btn btn-save">Lưu</button>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../assets/js/booking.js"></script>
+  </body>
+</html>

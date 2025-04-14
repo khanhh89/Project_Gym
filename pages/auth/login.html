@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../../assets/css/login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Đăng nhập -->
+    <div class="login-container">
+      <h1>Đăng nhập</h1>
+      <div class="input-group">
+        <label for="mail">Email</label>
+        <input type="email" name="mail" id="mail" />
+        <span class="err-sigup" id="errEmail"></span>
+      </div>
+      <div class="input-group">
+        <label for="pass">Mật khẩu</label>
+        <input type="password" name="pass" id="pass" />
+        <span class="err-sigup" id="errPass"></span>
+      </div>
+      <button class="btn-login" onclick="fValidLogin()">Đăng nhập</button>
+      <p>
+        Chưa có tài khoản?
+        <a href="../auth/register.html" class="sign-in">Đăng ký ngay</a>
+      </p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../assets/js/auth.js"></script>
+  </body>
+</html>

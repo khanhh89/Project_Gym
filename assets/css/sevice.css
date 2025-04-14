@@ -1,0 +1,362 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; /* Mặc định là column cho mobile */
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #1F2937;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  flex-grow: 1;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.sidebar ul li.active a {
+  background-color: #4B5563;
+}
+
+.sidebar .logout {
+  color: #ff4d4d;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+  display: block;
+}
+
+.content {
+  flex: 1;
+  padding: 20px; /* Giảm padding trên mobile */
+  background: #F3F4F6;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Cho phép wrap trên mobile */
+  gap: 10px; /* Khoảng cách giữa các phần tử */
+}
+
+.add-service {
+  background: #3B82F6;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px; /* Giảm kích thước chữ trên mobile */
+}
+
+table {
+  width: 100%;
+  background: white;
+  border-radius: 5px;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 10px; /* Giảm padding trên mobile */
+  border-bottom: 1px solid #E5E7EB;
+  text-align: left;
+  font-size: 14px; /* Giảm kích thước chữ trên mobile */
+}
+
+table th {
+  background: #F9FAFB;
+}
+
+/* Media Queries cho các kích thước màn hình lớn hơn */
+@media (min-width: 768px) { /* Tablet trở lên */
+  .container {
+      flex-direction: row; /* Chuyển sang row cho tablet và desktop */
+  }
+
+  .sidebar {
+      width: 250px; /* Khôi phục width cố định */
+      min-height: 100vh; /* Đảm bảo sidebar full height */
+  }
+
+  .content {
+      padding: 30px; /* Khôi phục padding gốc */
+  }
+
+  table th,
+  table td {
+      padding: 15px; /* Khôi phục padding gốc */
+      font-size: 16px; /* Khôi phục kích thước chữ */
+  }
+
+  .add-service {
+      font-size: 16px; /* Khôi phục kích thước chữ */
+  }
+}
+
+/* Điều chỉnh cho màn hình nhỏ hơn (mobile) */
+@media (max-width: 767px) {
+  .sidebar {
+      padding: 15px; /* Giảm padding trên mobile */
+  }
+
+  .sidebar h2 {
+      font-size: 18px; /* Giảm kích thước chữ */
+      margin-bottom: 20px;
+  }
+
+  .sidebar ul li a,
+  .sidebar .logout {
+      font-size: 14px; /* Giảm kích thước chữ */
+      padding: 8px;
+  }
+
+  /* Ẩn cột không cần thiết trong bảng trên mobile */
+  table {
+      display: block;
+      overflow-x: auto; /* Cho phép cuộn ngang nếu cần */
+      white-space: nowrap;
+  }
+
+  .header {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+}
+
+/* Điều chỉnh cho màn hình rất nhỏ (dưới 480px) */
+@media (max-width: 480px) {
+  .sidebar h2 {
+      font-size: 16px;
+  }
+
+  .sidebar ul li {
+      margin-bottom: 10px;
+  }
+
+  .content {
+      padding: 15px;
+  }
+
+  .add-service {
+      width: 100%; /* Button full width trên mobile nhỏ */
+      text-align: center;
+  }
+}
+
+
+.edit-btn, .delete-btn {
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.edit-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+#edit-name, #edit-description, #edit-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+#edit-description {
+  height: 100px;
+  resize: vertical;
+}
+#save-edit, #cancel-edit {
+  padding: 8px 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+#save-edit {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
+#cancel-edit {
+  background-color: #ccc;
+  border: none;
+}
+
+/* CSS cho modal thêm dịch vụ */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* nền đen mờ */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-buttons .cancel {
+  background-color: #6c757d;
+  color: white;
+}
+
+.modal-buttons .save {
+  background-color: #28a745;
+  color: white;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* CSS cho modal chỉnh sửa */
+.edit-modal {
+  display: none; /* Ẩn mặc định */
+  position: fixed; /* Cố định trên viewport */
+  z-index: 9999; /* Đảm bảo ở trên các phần tử khác */
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Nền đen mờ */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.edit-modal .modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.edit-modal h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.edit-modal label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.edit-modal input[type="text"],
+.edit-modal textarea {
+  width: calc(100% - 12px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.edit-modal .modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.edit-modal .modal-buttons button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+#save-edit {
+  background-color: #28a745;
+  color: white;
+}
+
+#cancel-edit {
+  background-color: #6c757d;
+  color: white;
+}

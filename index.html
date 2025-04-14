@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <!-- Include Chart.js from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include SweetAlert2 for notifications -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <h2>Admin Dashboard</h2>
+        <ul>
+          <li class="active"><a href="#">Quản lý lịch</a></li>
+          <li><a href="./pages/admin/sevice.html">Quản lý dịch vụ</a></li>
+          <li><a href="./pages/admin/dashboard.html">Trang chủ</a></li>
+          <li id="logoutLink">
+            <a href="./pages/auth/login.html" class="logout">Đăng xuất</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- Modal chỉnh sửa lịch -->
+      <div id="editModal" class="modal">
+        <div class="modal-content">
+          <span class="close">×</span>
+          <h2>Chỉnh sửa lịch tập</h2>
+          <form id="editForm">
+            <label for="classType">Loại lớp</label>
+            <select id="classType" required>
+              <option value="gym">Gym</option>
+              <option value="yoga">Yoga</option>
+              <option value="zumba">Zumba</option>
+            </select>
+      
+            <label for="date">Ngày</label>
+            <input id="date" type="date" placeholder="Ngày" required />
+      
+            <label for="time">Giờ</label>
+            <select id="time" required>
+              <option value="06:00-07:00">05:00-07:00</option>
+              <option value="07:00-09:00">07:00-09:00</option>
+              <option value="09:00-11:00">09:00-11:00</option>
+              <option value="15:00-17:00">15:00-17:00</option>
+              <option value="17:00-19:00">17:00-19:00</option>
+              <option value="19:00-22:00">19:00-22:00</option>
+            </select>
+<!--       
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="Email" required /> -->
+      
+            <div class="modal-buttons">
+              <button class="cancel" onclick="closeEditForm()">Hủy</button>
+              <button class="save">Lưu</button>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+      <main class="content">
+        <h1>Thống kê lịch tập</h1>
+        <div class="stats">
+          <div class="stat-box">
+            <h3>Tổng số lịch Gym</h3>
+            <p id="gymCount">0</p>
+          </div>
+          <div class="stat-box">
+            <h3>Tổng số lịch Yoga</h3>
+            <p id="yogaCount">0</p>
+          </div>
+          <div class="stat-box">
+            <h3>Tổng số lịch Zumba</h3>
+            <p id="zumbaCount">0</p>
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="scheduleChart"></canvas>
+        </div>
+
+        <div class="filters">
+          <h3>Bộ lọc</h3>
+          <div class="filter-group">
+            <select id="filterClassType">
+              <option value="all">Tất cả loại lớp</option>
+              <option value="Gym">Gym</option>
+              <option value="Yoga">Yoga</option>
+              <option value="Zumba">Zumba</option>
+              <!-- thêm nếu có lớp khác -->
+            </select>
+            
+            <label for="emailInput">Email</label>
+            <input type="text" id="emailInput" placeholder="Tìm theo email" />
+            
+            <label for="dateInput">Ngày</label>
+            <input type="date" id="dateInput" />
+
+            <button id="filterBtn">Lọc</button>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Lớp học</th>
+              <th>Ngày tập</th>
+              <th>Khung giờ</th>
+              <th>Họ tên</th>
+              <th>Email</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dữ liệu lịch tập sẽ được thêm vào đây -->
+          </tbody>
+        </table>
+      </main>
+    </div>
+
+    <script src="./assets/js/admin.js"></script>
+  </body>
+</html>

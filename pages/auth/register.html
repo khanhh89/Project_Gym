@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="../../assets/css/login.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Đăng kí -->
+    <div class="login-container">
+      <h1>Đăng ký tài khoản</h1>
+      <div class="input-group">
+        <label for="name">Họ và tên</label>
+        <input type="text" name="name" id="name" />
+        <span class="err-sigup" id="errName"></span>
+      </div>
+      <div class="input-group">
+        <label for="mail">Email</label>
+        <input type="email" name="mail" id="mail" />
+        <span class="err-sigup" id="errMail"></span>
+      </div>
+      <div class="input-group">
+        <label for="pass">Mật khẩu</label>
+        <input type="password" name="pass" id="pass" />
+        <span class="err-sigup" id="errPass"></span>
+      </div>
+      <div class="input-group">
+        <label for="checkpass">Xác nhận mật khẩu</label>
+        <input type="password" name="checkpass" id="checkpass" />
+        <span class="err-sigup" id="errPassCheck"></span>
+      </div>
+      <button class="btn-login" onclick="fValid()">Đăng ký</button>
+      <p>
+        Đã có tài khoản?
+        <a href="../auth/login.html" class="sign-in">Đăng nhập ngay</a>
+      </p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="../../assets/js/auth.js"></script>
+  </body>
+</html>
